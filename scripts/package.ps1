@@ -18,6 +18,7 @@ foreach ($folderName in @('docs','examples','licenses')) {
     if ($LASTEXITCODE -gt 7) { throw "复制 $folderName 失败" }
 }
 Copy-Item -LiteralPath (Join-Path $taskRoot 'README.md') -Destination $stageDir -Force
+Copy-Item -LiteralPath (Join-Path $taskRoot 'RECOVERY.md') -Destination $stageDir -Force
 Copy-Item -LiteralPath (Join-Path $taskRoot 'build/windows/icon.ico') -Destination (Join-Path $stageDir 'MarkdownReader.ico') -Force
 Copy-Item -LiteralPath (Join-Path $taskRoot 'MarkdownReader.png') -Destination $stageDir -Force
 if ($PreviewTag) { Copy-Item -LiteralPath (Join-Path $taskRoot 'docs/预览版说明.md') -Destination (Join-Path $stageDir 'PREVIEW.md') -Force }
@@ -41,7 +42,7 @@ function Add-PortableDirectory([string]$taskDirectory) {
 }
 try {
     $taskArchive = [IO.Compression.ZipFile]::Open($taskZipTemp, [IO.Compression.ZipArchiveMode]::Create)
-    foreach ($taskFileName in @('MarkdownReader.exe','MarkdownReader.ico','MarkdownReader.png','README.md')) {
+    foreach ($taskFileName in @('MarkdownReader.exe','MarkdownReader.ico','MarkdownReader.png','README.md','RECOVERY.md')) {
         Add-PortableFile (Get-Item -LiteralPath (Join-Path $stageDir $taskFileName))
     }
     if ($PreviewTag) { Add-PortableFile (Get-Item -LiteralPath (Join-Path $stageDir 'PREVIEW.md')) }

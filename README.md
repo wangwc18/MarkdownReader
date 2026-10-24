@@ -6,11 +6,13 @@
 
 当前版本：**0.1.0 Preview**。主要功能已实现并经过本机验证，仍处于预览阶段，暂不承诺与 Typora 完全一致。
 
+[下载 Windows x64 便携预览版](https://github.com/wangwc18/MarkdownReader/releases/tag/v0.1.0-preview) · [源码与重建方法](RECOVERY.md)
+
 ## 背景介绍
 
 Typora在这个年代竟然收费！那现在我可要想想办法了，老实敲代码很枯燥吧，Codex启动！
 
-## 程序实拍
+## UI效果
 
 ![MarkdownReader 实际运行界面](docs/images/markdownreader-window.png)
 

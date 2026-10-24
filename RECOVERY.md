@@ -1,6 +1,6 @@
 # 备份与恢复
 
-当前为 0.1.0 Preview。此次整理没有推送 GitHub；本地 Git 提交会随工程目录一起删除。只有已推送远端，或已验证工程目录外的备份，才能从相应位置恢复。
+当前为 0.1.0 Preview。源码仓库为 https://github.com/wangwc18/MarkdownReader ，预览版及重建依赖位于 [v0.1.0-preview Release](https://github.com/wangwc18/MarkdownReader/releases/tag/v0.1.0-preview)。删除本地工程前，请确认远端提交和附件齐全，或保留已验证的工程外备份。
 
 ## 删除工程前
 
@@ -11,14 +11,14 @@
 
 ## 获取源码
 
-日后实际推送 GitHub 后，将下面占位地址替换为真实仓库：
+从 GitHub 获取源码：
 
 ```powershell
-git clone https://github.com/OWNER/REPO.git MarkdownReader
+git clone https://github.com/wangwc18/MarkdownReader.git MarkdownReader
 cd MarkdownReader
 ```
 
-未推送时，从工程外备份恢复：
+也可以从工程外备份恢复：
 
 ```powershell
 git bundle verify D:\MarkdownReader-recovery\MarkdownReader.bundle
@@ -46,7 +46,7 @@ WebView2 固定版本的旧下载地址日后可能失效；优先保留这两�
 | webview2-155.0.4283.45-x64.cab | EC533BF1B7354D288703CF821A2D640D0130108224F93E330BB9C09FAF3F8010 |
 | pandoc-3.12.1.zip | 6EF431CB20B2C24A0371FC19200DC49D452BE54B1B5C9239F3462841EF53E587 |
 
-将文件放入 `downloads/`，或指定工程外缓存：
+可从上面的 Release 下载这两份同名原始依赖并按表核对哈希。将文件放入 `downloads/`，或指定工程外缓存：
 
 ```powershell
 .\scripts\setup-deps.ps1 -DependencyCache 'D:\MarkdownReader-dependencies' -Offline
