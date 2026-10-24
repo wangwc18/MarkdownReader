@@ -1,0 +1,12 @@
+{
+  "actualGUIchecks": 3,
+  "path": "dist/MarkdownReader-0.1.0-preview-20261024-spelling-windows-x64.zip",
+  "archivePassed": true,
+  "bytes": 365466419,
+  "extractedSmokeChecks": 15,
+  "cleanWindows10And11Verified": false,
+  "executableSHA256": "BD6CEB1A19B08FED9964D384239B7DB9AAE6ED87B7603750CC9AC0DAB75F854A",
+  "zipSHA256": "DD434570BCE16D30355D229ED6C664628C4B62A0E17AF2128547BEF192DBE91B",
+  "completeTyporaParity": false,
+  "report": "docs/预览包验证-20261024-spelling.md"
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "MarkdownReader",
+  "outputfilename": "MarkdownReader",
+  "frontend:install": "npm ci",
+  "frontend:build": "npm run build",
+  "author": { "name": "MarkdownReader", "email": "" }
+}

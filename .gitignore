@@ -1,0 +1,16 @@
+/frontend/node_modules/
+/frontend/dist/
+/build/bin/
+/dist/
+/downloads/
+/data/
+*.syso
+/archive/
+/build/research/
+/build/test-tools/
+/build/appicon.png
+/frontend/public/vendor/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

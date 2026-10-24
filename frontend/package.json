@@ -1,0 +1,20 @@
+{
+  "name": "markdownreader",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "test": "node --test src/*.test.js"
+  },
+  "dependencies": {
+    "dictionary-en": "4.0.0",
+    "dictionary-en-gb": "3.0.0",
+    "diff-match-patch": "1.0.5",
+    "nspell": "2.1.5",
+    "vditor": "4.0.0"
+  },
+  "devDependencies": {
+    "vite": "7.3.1"
+  }
+}
