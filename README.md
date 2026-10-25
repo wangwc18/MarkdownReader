@@ -4,9 +4,9 @@
 
 使用 **Go + Wails + Vditor** 构建的 Windows 桌面 Markdown 编辑器，提供即时渲染、源码编辑和便携运行。
 
-当前版本：**0.1.0 Preview**。主要功能已实现并经过本机验证，仍处于预览阶段，暂不承诺与 Typora 完全一致。
+当前版本：**0.1.0 Preview 2**。主要功能已实现并经过本机验证，仍处于预览阶段，暂不承诺与 Typora 完全一致。
 
-[下载 Windows x64 便携预览版](https://github.com/wangwc18/MarkdownReader/releases/tag/v0.1.0-preview) · [源码与重建方法](RECOVERY.md)
+[下载 Windows x64 便携预览版](https://github.com/wangwc18/MarkdownReader/releases/tag/v0.1.0-preview.2) · [源码与重建方法](RECOVERY.md)
 
 ## 背景介绍
 
@@ -55,6 +55,7 @@ MarkdownReader/
 | 操作 | 快捷键 |
 | --- | --- |
 | 新建 / 打开 / 保存 | `Ctrl+N` / `Ctrl+O` / `Ctrl+S` |
+| 关闭当前文档标签 | `Ctrl+W`，或点击标签上的 `×` |
 | 另存为 | `Ctrl+Shift+S` |
 | 切换源码模式 | `Ctrl+/` |
 | 查找 / 替换 | `Ctrl+F` / `Ctrl+H` |
@@ -84,7 +85,8 @@ MarkdownReader/
 ## 项目结构
 
 ```text
-*.go                 Go 后端与自动化测试
+main.go              启动入口与前端资源嵌入
+internal/desktop/    桌面后端、文件服务及对应 Go 测试
 frontend/src/        编辑界面、渲染和前端测试
 scripts/             构建、打包和测试辅助程序
 third_party/         修改后的第三方源码

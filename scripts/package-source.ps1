@@ -1,12 +1,18 @@
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 $sourceStage = Join-Path $taskRoot 'dist/source-staging/MarkdownReader-source'
+# Start from a clean generated staging directory so moved/deleted source files
+# cannot survive in later source archives.
+$sourceStage = [IO.Path]::GetFullPath($sourceStage)
+$sourceStageParent = [IO.Path]::GetFullPath((Join-Path $taskRoot 'dist/source-staging'))
+if ([IO.Path]::GetDirectoryName($sourceStage) -ne $sourceStageParent) { throw 'Unexpected source staging path' }
+if (Test-Path -LiteralPath $sourceStage) { Remove-Item -LiteralPath $sourceStage -Recurse -Force }
 New-Item -ItemType Directory -Force $sourceStage | Out-Null
 foreach ($fileName in @('go.mod','go.sum','wails.json','README.md','RECOVERY.md','CHANGELOG.md','.gitignore','.gitattributes','MarkdownReader.png')) {
     Copy-Item -LiteralPath (Join-Path $taskRoot $fileName) -Destination $sourceStage -Force
 }
 Get-ChildItem -LiteralPath $taskRoot -Filter '*.go' -File | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $sourceStage -Force }
-foreach ($folderName in @('scripts','third_party','licenses','docs','examples')) {
+foreach ($folderName in @('internal','scripts','third_party','licenses','docs','examples')) {
     & robocopy.exe (Join-Path $taskRoot $folderName) (Join-Path $sourceStage $folderName) /E /NFL /NDL /NJH /NJS /NP /R:2 /W:1 /XF webview-download-page.html 'export-test-*' UI操作验证.pdf | Out-Null
     if ($LASTEXITCODE -gt 7) { throw "复制 $folderName 失败" }
 }

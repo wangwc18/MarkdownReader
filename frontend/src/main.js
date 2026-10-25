@@ -857,12 +857,24 @@ function renderTabs() {
   $("#tabs").innerHTML = "";
   $("#tabs").hidden = docs.length < 2;
   for (const d of docs) {
-    const b = document.createElement("button");
-    b.className = d.id === active?.id ? "active" : "";
-    b.textContent = (d.dirty ? "● " : "") + d.name;
-    b.title = d.path || "未保存文档";
-    b.onclick = () => safely(() => switchDoc(d));
-    $("#tabs").append(b);
+    const tab = document.createElement("div");
+    tab.className = "document-tab" + (d.id === active?.id ? " active" : "");
+    const select = document.createElement("button");
+    select.className = "tab-select";
+    select.textContent = (d.dirty ? "● " : "") + d.name;
+    select.title = d.path || "未保存文档";
+    select.onclick = () => safely(() => switchDoc(d));
+    const close = document.createElement("button");
+    close.className = "tab-close";
+    close.textContent = "×";
+    close.title = "关闭文档 (Ctrl+W)";
+    close.setAttribute("aria-label", "关闭 " + d.name);
+    close.onclick = () => safely(async () => {
+      if (active?.id !== d.id) await switchDoc(d);
+      await closeDocument();
+    });
+    tab.append(select, close);
+    $("#tabs").append(tab);
   }
   const recent = menus[0][1].find((x) => x?.id === "recent");
   recent.children = (settings.recent || []).map((p) => cmd(p, "openpath:" + p));
@@ -2968,9 +2980,9 @@ $("#count").onclick = () => {
   );
 };
 async function boot() {
-  for (let i = 0; i < 100 && !window.go?.main?.App; i++)
+  for (let i = 0; i < 100 && !window.go?.desktop?.App; i++)
     await new Promise((r) => setTimeout(r, 50));
-  api = window.go?.main?.App;
+  api = window.go?.desktop?.App;
   if (!api) throw Error("Go 桌面桥接未加载");
   window.runtime.EventsOn("close-request", () =>
     safely(async () => {

@@ -1,6 +1,6 @@
 # 备份与恢复
 
-当前为 0.1.0 Preview。源码仓库为 https://github.com/wangwc18/MarkdownReader ，预览版及重建依赖位于 [v0.1.0-preview Release](https://github.com/wangwc18/MarkdownReader/releases/tag/v0.1.0-preview)。删除本地工程前，请确认远端提交和附件齐全，或保留已验证的工程外备份。
+当前为 0.1.0 Preview 2。源码仓库为 https://github.com/wangwc18/MarkdownReader ，最新程序见 [Preview 2 Release](https://github.com/wangwc18/MarkdownReader/releases/tag/v0.1.0-preview.2)，固定版本的重建依赖仍在 [首版 Release](https://github.com/wangwc18/MarkdownReader/releases/tag/v0.1.0-preview)。删除本地工程前，请确认远端提交和附件齐全，或保留已验证的工程外备份。
 
 ## 删除工程前
 

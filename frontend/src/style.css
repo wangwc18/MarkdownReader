@@ -130,12 +130,19 @@ button:focus-visible {
   overflow-x: auto;
   flex-shrink: 0;
 }
-#tabs button {
-  padding: 4px 18px;
+#tabs .document-tab {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
   border-right: 1px solid var(--line);
+}
+#tabs button {
   white-space: nowrap;
   font-size: 12px;
 }
+#tabs .tab-select { padding: 4px 10px 4px 16px; }
+#tabs .tab-close { padding: 2px 6px; margin-right: 6px; border-radius: 4px; }
+#tabs .tab-close:hover { background: var(--line); }
 #tabs .active {
   background: var(--hover);
   box-shadow: inset 0 -2px var(--accent);
